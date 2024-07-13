@@ -4,7 +4,6 @@
 
 # 풀이
 # haystack 의 첫 글자부터 needle의 글자수만큼 비교
-# 
 # 인덱스가 넘어가지 않도록 함
 
 class Solution:
