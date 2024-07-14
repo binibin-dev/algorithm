@@ -5,6 +5,7 @@
 
 # 풀이
 # s 와 t 는 길이가 동일해야 함
+# 두 문자열을 순서대로 정렬하여 비교 횟수를 줄이도록 함
 # t 의 각 문자가 s 에 포함된다면 하나씩 제거, 없으면 바로 False를 반환
 
 class Solution:
@@ -12,11 +13,13 @@ class Solution:
         if len(s) != len(t):
             return False
 
-        s = list(s)
+        s = sorted(list(s))
+        t = sorted(t)
+
         for c in t:
-            if c not in s:
-                return False
-            else:
+            if c in s:
                 s.remove(c)
+            else:
+                return False
 
         return True
