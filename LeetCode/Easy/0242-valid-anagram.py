@@ -13,7 +13,7 @@ class Solution:
         if len(s) != len(t):
             return False
 
-        s = sorted(list(s))
+        s = sorted(s)
         t = sorted(t)
 
         for c in t:
