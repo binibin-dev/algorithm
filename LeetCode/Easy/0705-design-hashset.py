@@ -10,16 +10,11 @@ class MyHashSet:
     def __init__(self):
         self.buckets = []
 
-    def hash_function(self, key):
-        return key % 10
-
     def add(self, key: int) -> None:
-        index = self.hash_function(key)
         if key not in self.buckets:
             self.buckets.append(key)
 
     def remove(self, key: int) -> None:
-        index = self.hash_function(key)
         if key in self.buckets:
             self.buckets.remove(key)
 
