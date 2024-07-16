@@ -3,6 +3,7 @@
 # 배열에 항상 과반수를 차지하고 있는 요소가 존재한다고 가정한다.
 
 # 풀이
+# 요소의 개수를 카운팅하여 nums 의 절반길이보다 크면 return
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
