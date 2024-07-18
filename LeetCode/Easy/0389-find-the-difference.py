@@ -9,4 +9,7 @@
 
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        return list(set(t) - set(s))[0]
+        result = list(t)
+        for c in s:
+            result.remove(c)
+        return result[0]
