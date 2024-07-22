@@ -13,7 +13,7 @@ class Solution:
         d = {}
         sl = s.split()
 
-        if len(sl) != len(sl):
+        if len(pattern) != len(sl):
             return False
 
         for i in range(len(sl)): # 단어 개수만큼 반복
