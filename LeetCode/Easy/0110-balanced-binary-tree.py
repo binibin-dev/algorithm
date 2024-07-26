@@ -1,11 +1,7 @@
 # 문제
 # 주어진 트리가 height-balanced 인지 반환
-# height-balanced binary tree 는 왼쪽 서브트리와 오른쪽 서브트리의 높이가 1 이하로 차이나야 함
-
-# 풀이
-# 이진 탐색 트리는 왼쪽 자식 노드가 부모 노드보다 작고, 오른쪽 자식 노드가 부모보다 커야 함
-# 따라서 왼쪽 서브트리와 오른쪽 서브트리의 높이도 확인해야 하고,
-# 노드들이 위의 조건을 만족하는지도 확인해야 함
+# height-balanced binary tree 는 모든 노드에 대해 왼쪽 서브트리와 오른쪽 서브트리의 높이가 1 이하로 차이나야 함
+# A height-balanced binary tree is a binary tree in which **the depth of the two subtrees of every node** never differs by more than one.
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -16,16 +12,10 @@ class TreeNode:
 
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        def depth(head):
-            if head is None:
-                return 0
-
-            left = depth(head.left)
-            right = depth(head.right)
-
-            return 1 + max(left, right)
-
-        if not root:
-            return True
-
-        return abs(depth(root.left) - depth(root.right)) <= 1
+        def dfs(root):
+            if not root:
+                return [True,0]
+            left, right = dfs(root.left), dfs(root.right)
+            balanced = left[0] and right[0] and abs(left[1]-right[1]) <= 1 # 모든 노드에 대해 균형인지 판단해야 함!!!!
+            return [balanced,1+max(left[1],right[1])]
+        return dfs(root)[0]
