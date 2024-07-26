@@ -22,8 +22,7 @@ class Solution:
         while q:
             node, path = q.pop()
             if not node.left and not node.right:
-                path = map(str, path)
-                paths.append('->'.join(path))
+                paths.append('->'.join(map(str, path)))
             
             if node.left:
                 q.append([node.left, path + [node.left.val]])
