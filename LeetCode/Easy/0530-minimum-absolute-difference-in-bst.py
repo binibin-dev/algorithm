@@ -25,10 +25,10 @@ class Solution:
             node, path = q.pop()
 
             if node.left:
-                minVal = min([abs(p - node.left.val) for p in path])
+                minVal = min([minVal] + [abs(p - node.left.val) for p in path])
                 q.append((node.left, path + [node.left.val]))
             if node.right:
-                minVal = min([abs(p - node.right.val) for p in path])
+                minVal = min([minVal] + [abs(p - node.right.val) for p in path])
                 q.append((node.right, path + [node.right.val]))
         
         return minVal
