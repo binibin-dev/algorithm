@@ -9,6 +9,9 @@
 
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
+        if num == 0 or num == 1:
+            return True
+
         left, right = 1, num
 
         while left < right:
