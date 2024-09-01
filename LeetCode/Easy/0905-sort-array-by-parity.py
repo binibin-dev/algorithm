@@ -4,11 +4,21 @@
 
 class Solution:
     def sortArrayByParity(self, nums: List[int]) -> List[int]:
-        even = []
-        odd = []
-        for i in range(len(nums)):
-            if nums[i] % 2 == 0:
-                even.append(nums[i])
-            else:
-                odd.append(nums[i])
-        return even + odd
+        left = 0
+        right = len(nums) - 1
+
+        while left < right:
+            if nums[left] % 2 == 0:
+                left += 1
+                continue
+            
+            if nums[right] % 2 != 0:
+                right -= 1
+                continue
+            
+            # left 에 있는 수가 홀수이고 right 에 있는 수가 짝수인 경우
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+        
+        return nums
