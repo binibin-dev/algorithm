@@ -4,5 +4,11 @@
 
 class Solution:
     def sortArrayByParity(self, nums: List[int]) -> List[int]:
-        nums.sort(key=lambda x: (0, x) if x % 2 == 0 else (1, x))
-        return nums
+        even = []
+        odd = []
+        for i in range(len(nums)):
+            if nums[i] % 2 == 0:
+                even.append(nums[i])
+            else:
+                odd.append(nums[i])
+        return even + odd
