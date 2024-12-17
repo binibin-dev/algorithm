@@ -7,14 +7,9 @@
 # -로 split
 # 연도, 월, 일 각각을 이진 표현으로 변환
 # (bin 함수 사용 시 0b 가 앞에 붙으므로 주의)
-# (앞에 있는 0을 없애기 위해 이진 표현으로 바꾼 후 int로 다시 형변환)
 # -로 다시 이어 붙임
 
 
 class Solution:
     def convertDateToBinary(self, date: str) -> str:
-        result = []
-        for word in date.split('-'):
-            res = str(int(bin(int(word))[2:]))
-            result.append(res)
-        return '-'.join(result)
+        return '-'.join([bin(int(word))[2:] for word in date.split('-')])
